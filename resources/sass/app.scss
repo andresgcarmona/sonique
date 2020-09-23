@@ -1,0 +1,96 @@
+@import 'variables';
+
+@tailwind base;
+
+@tailwind components;
+
+* {
+  font-family: $font-family-sans-serif;
+  font-size: $font-size-base;
+
+  &::-webkit-scrollbar {
+    width: 9px !important;
+    border: 1px solid transparent;
+  }
+
+  &::-webkit-scrollbar-corner {
+    border-radius: 3px;
+    border: 1px solid #C0C0C1;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #C0C0C1;
+    opacity: 0;
+    border: 1px solid transparent;
+  }
+}
+
+body, html {
+  @apply h-full;
+  @apply m-0;
+  @apply p-0;
+  @apply border-0;
+}
+
+body {
+  @apply m-0;
+  @apply font-sans;
+  @apply text-base;
+  @apply text-left;
+  line-height: 1.5;
+  color: #fff0ff;
+  background-color: $body-bg;
+
+}
+
+.app {
+  @apply w-full;
+  @apply min-h-full;
+  @apply overflow-x-hidden;
+  @apply relative;
+  background-color: #121212;
+
+  .app-main {
+    &.has-header {
+
+    }
+  }
+}
+
+.error,
+.errors {
+  display: block;
+  margin-top: 10px;
+  color: #d90000;
+}
+
+.spotify-logo {
+  width: 131px;
+  height: 40px;
+  color: #fff;
+}
+
+a {
+  &:link, &:visited {
+    @apply text-green-500;
+  }
+
+  &:hover, &:active {
+    @apply text-green-600;
+    @apply transition;
+    @apply duration-150;
+  }
+}
+
+[type=button]:not(:disabled),
+[type=reset]:not(:disabled),
+[type=submit]:not(:disabled),
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+.collapse:not(.show) {
+  display: none;
+}
+
+@tailwind utilities;
