@@ -17,7 +17,8 @@
     "laravel/framework": "^8.0",
     "laravel/tinker": "^2.0",
     "laravelcollective/html": "^6.2",
-    "polaris/laravel-spotify-api": "dev-master"
+    "polaris/laravel-spotify-api": "dev-master",
+    "spatie/laravel-queueable-action": "^2.6"
   },
   "require-dev": {
     "roave/security-advisories": "dev-master",
