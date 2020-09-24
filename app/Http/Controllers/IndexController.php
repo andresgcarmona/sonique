@@ -6,6 +6,7 @@
     use Illuminate\Contracts\View\Factory;
     use Illuminate\Http\Request;
     use Illuminate\Http\Response;
+    use Illuminate\Support\Facades\Cookie;
     use Illuminate\View\View;
 
     class IndexController extends Controller
@@ -23,6 +24,10 @@
          */
         public function __invoke(Request $request)
         {
-            return view('index');
+            $apiToken = Cookie::get('api_token');
+
+            dd($apiToken);
+
+            return view('index', compact('apiToken'));
         }
     }
