@@ -1,3 +1,5 @@
+@import '../fonts/circular-std/css/circular-std.css';
+
 @import 'variables';
 
 @tailwind base;
@@ -65,8 +67,7 @@ body {
 }
 
 .spotify-logo {
-  width: 131px;
-  height: 40px;
+  width: 160px;
   color: #fff;
 }
 
