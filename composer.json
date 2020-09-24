@@ -15,9 +15,9 @@
     "fruitcake/laravel-cors": "^2.0",
     "guzzlehttp/guzzle": "^7.0.1",
     "laravel/framework": "^8.0",
-    "laravel/passport": "^10.0",
     "laravel/tinker": "^2.0",
-    "laravelcollective/html": "^6.2"
+    "laravelcollective/html": "^6.2",
+    "polaris/laravel-spotify-api": "dev-master"
   },
   "require-dev": {
     "roave/security-advisories": "dev-master",
@@ -49,6 +49,16 @@
       "Tests\\": "tests/"
     }
   },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "../packages/laravel-spotify-api"
+    },
+    {
+      "type": "path",
+      "url": "../packages/laravel-entity"
+    }
+  ],
   "minimum-stability": "dev",
   "prefer-stable": true,
   "scripts": {
