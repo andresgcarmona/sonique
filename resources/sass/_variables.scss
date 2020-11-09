@@ -1,8 +1,44 @@
-$gray-100: #191927;
+// Body
+$steal-gray: #1e1e1e;
+$sidebar-bg: #191919;
 
-$body-bg: $gray-100;
+// Sidebar.
+$sidebar_light: #fff;
+$sidebar_width: 16rem;
+
+// Header
+$header_height: 4rem;
 
 // Typography
 $font-family-sans-serif: 'CircularStd', sans-serif;
 $font-size-base: 1.05rem;
 $line-height-base: 1.6;
+
+// Colors
+$blue: #3490dc;
+$indigo: #6574cd;
+$purple: #9561e2;
+$pink: #f66d9b;
+$red: #e3342f;
+$orange: #f6993f;
+$yellow: #ffed4a;
+$green: #38c172;
+$teal: #4dc0b5;
+$cyan: #6cb2eb;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1600px
+);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1540px
+);

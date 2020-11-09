@@ -5,10 +5,11 @@
     use Illuminate\Database\Eloquent\Factories\HasFactory;
     use Illuminate\Foundation\Auth\User as Authenticatable;
     use Illuminate\Notifications\Notifiable;
+    use Laravel\Sanctum\HasApiTokens;
 
     class User extends Authenticatable
     {
-        use HasFactory, Notifiable;
+        use HasFactory, Notifiable, HasApiTokens;
 
         /**
          * The attributes that are mass assignable.
@@ -26,7 +27,6 @@
             'uri',
             'access_token',
             'refresh_token',
-            'api_token',
             'token_expires_at',
         ];
 
@@ -48,4 +48,18 @@
         protected $casts = [
             'email_verified_at' => 'datetime',
         ];
+
+        /**
+         * Returns the avatar of the user.
+         *
+         * @return string
+         */
+        public function getAvatarAttribute($value): string
+        {
+            if ($value !== null) {
+                return $value;
+            }
+
+            return 'https://www.gravatar.com/avatar/'.md5(strtolower($this->email)).'?s=200&d=retro';
+        }
     }

@@ -42,8 +42,6 @@
             try {
                 DB::beginTransaction();
 
-                $token = Str::random(60);
-
                 $user = User::create([
                     'display_name'     => $data->display_name ?? null,
                     'username'         => $data->id,
@@ -55,7 +53,6 @@
                     'uri'              => $data->uri ?? null,
                     'access_token'     => $this->client->getAccountClient()->getAccessToken(),
                     'refresh_token'    => $this->client->getAccountClient()->getRefreshToken(),
-                    'api_token'        => hash('sha256', $token),
                     'token_expires_at' => now()->addSeconds($this->client->getAccountClient()->getExpiresAt()),
                 ]);
 

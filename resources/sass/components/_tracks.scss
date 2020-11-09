@@ -1,0 +1,13 @@
+.track-list {
+  background-color: $steal-gray;
+}
+
+.track-container {
+  header {
+    .media-object {
+      &.album-art {
+        min-width: 14rem;
+      }
+    }
+  }
+}

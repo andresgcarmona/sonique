@@ -1,0 +1,19 @@
+.album-container {
+  header {
+    .media-artist,
+    .media-artists-label,
+    .media-artists-release-date {
+      &:after {
+        content: '\2022';
+        margin: 0 4px;
+        @apply text-sm;
+      }
+    }
+
+    .media-object {
+      &.album-art {
+        min-width: 14rem;
+      }
+    }
+  }
+}

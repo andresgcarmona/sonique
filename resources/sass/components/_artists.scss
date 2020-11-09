@@ -1,0 +1,15 @@
+.artist-container {
+  header {
+    &.cover {
+      background-repeat: no-repeat;
+      background-size: cover;
+      min-height: 20rem;
+    }
+
+    .media-object {
+      &.album-art {
+        min-width: 14rem;
+      }
+    }
+  }
+}

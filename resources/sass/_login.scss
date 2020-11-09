@@ -1,0 +1,23 @@
+.auth {
+  min-height: 100vh;
+  background-color: transparent;
+
+  #auth-header {
+    background: transparent;
+    padding: 0 !important;
+    margin: 0 !important;
+    margin-bottom: 2rem !important;
+    margin-top: -5rem !important;
+  }
+
+  .auth-form,
+  .verify-form {
+    width: 95%;
+    padding: 2rem;
+  }
+}
+
+.btn-login {
+  border-radius: 32px !important;
+  padding: 0 30px;
+}

@@ -1,0 +1,121 @@
+$media-object-max-width: auto;
+$media-object-min-width: 175px;
+$media-object-width: 100%;
+$media-object-height: auto;
+$media-object-container-bg: #121212;
+
+$cover-width: 100%;
+$cover-height: 100%;
+
+.media-object-list-container {
+  background-color: $media-object-container-bg;
+}
+
+.media-object {
+  max-width: $media-object-max-width;
+  min-width: $media-object-min-width;
+  width: $media-object-width;
+  height: $media-object-height;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 .5rem 1rem rgba(20, 20, 31, .15) !important;
+  }
+
+  &.artist {
+    .cover {
+      border-radius: 50%;
+    }
+  }
+
+  .cover-wrapper {
+    width: auto;
+    height: auto;
+    display: block;
+    padding-top: 100%;
+    position: relative;
+  }
+
+  .cover {
+    width: $cover-width;
+    height: $cover-height;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .media-controls {
+        .media-play-button {
+          border: 2px solid #888c9b;
+          border-radius: 50%;
+
+          button {
+            outline: none;
+            border-radius: 50%;
+            width: 3rem;
+            height: 3rem;
+            padding: 0;
+            position: relative;
+            background-color: rgba(0, 0, 0, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &:focus {
+              box-shadow: none;
+            }
+
+            > img,
+            .fas,
+            .far {
+              position: relative;
+              color: #888c9b;
+            }
+          }
+        }
+      }
+    }
+
+    &:hover {
+      .overlay {
+        opacity: 1;
+      }
+    }
+  }
+
+  .media-name {
+    font-size: 0.9rem;
+  }
+
+  .media-artists-container {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-right: 1px;
+    margin-right: -1px;
+
+    .media-artist {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+@import 'components/album';
+@import 'components/tracks';
+@import 'components/artists';

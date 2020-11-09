@@ -1,0 +1,101 @@
+.app-header {
+  z-index: 1030;
+
+  &.app-header-dark {
+    background-color: #1e1e1e;
+
+    .account-button {
+      &:hover {
+        background-color: hsla(0, 0%, 100%, .12);
+        transition: all .150ms;
+      }
+    }
+
+    .header-nav {
+      .nav-item {
+        .nav-link {
+          &:hover {
+            background-color: hsla(0, 0%, 100%, .12);
+            transition: all .150ms;
+          }
+        }
+      }
+    }
+  }
+
+  .top-bar {
+    .top-bar-brand {
+      background-color: transparent;
+    }
+  }
+
+  .btn-account {
+    padding: 0 1rem;
+    min-width: 3.5rem;
+    min-height: 3.5rem;
+  }
+
+  .top-bar-search {
+    .search-container {
+      .search-icon-wrapper {
+        top: calc(50% - .7rem);
+        left: 1rem;
+
+        .search-icon {
+
+        }
+      }
+
+      input[type="text"],
+      input[type="search"] {
+        background-color: hsla(0, 0%, 100%, .12);
+
+        &:focus {
+          @apply bg-white;
+          @apply transition;
+          @apply duration-200;
+        }
+      }
+    }
+  }
+}
+
+@import 'header/hamburger';
+
+.account-summary {
+  max-width: 10rem;
+  margin-right: .75rem;
+  display: block;
+  text-align: left;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: clip;
+  white-space: nowrap;
+
+  .account-name,
+  .account-description {
+    margin: 0;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 500;
+    line-height: 1rem;
+  }
+
+  .account-description {
+    font-size: .75rem;
+    font-weight: 400;
+    opacity: .7;
+  }
+}
+
+@media (min-width: 992px) {
+  .app-header {
+    .top-bar {
+      .top-bar-brand {
+        background-color: $sidebar-bg;;
+      }
+    }
+  }
+}

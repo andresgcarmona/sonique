@@ -26,7 +26,6 @@
                 $table->string('uri')->nullable();
                 $table->string('access_token');
                 $table->string('refresh_token');
-                $table->string('api_token')->unique()->nullable()->default(null);
                 $table->dateTime('token_expires_at');
                 $table->rememberToken();
                 $table->timestamps();

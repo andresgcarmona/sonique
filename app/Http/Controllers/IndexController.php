@@ -8,6 +8,7 @@
     use Illuminate\Http\Response;
     use Illuminate\Support\Facades\Cookie;
     use Illuminate\View\View;
+    use JavaScript;
 
     class IndexController extends Controller
     {
@@ -26,7 +27,9 @@
         {
             $apiToken = Cookie::get('api_token');
 
-            dd($apiToken);
+            JavaScript::put([
+                'api_token' => $apiToken,
+            ]);
 
             return view('index', compact('apiToken'));
         }

@@ -80,17 +80,20 @@
                 if (!$user) {
                     $user = $createUserAction->execute($me);
                 } else {
-                    $updateUserAction->execute($user, $me);
+                    $user = $updateUserAction->execute($user, $me);
                 }
 
-                $user->fresh();
+                // Delete old tokens.
+                $user->tokens()->delete();
+
+                $token = $user->createToken('sonique');
 
                 // Finally log in and remember user.
                 auth()->login($user, true);
 
                 // Attach api token to redirect.
                 return redirect()->route('index')
-                                 ->withCookie('api_token', $user->api_token, config('session.lifetime'), '/');
+                                 ->withCookie('api_token', $token->plainTextToken, 0, '/');
             } catch (SpotifyAuthException $exception) {
                 throw_if(config('app.debug'), $exception);
             } catch (Exception $exception) {
