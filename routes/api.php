@@ -8,6 +8,8 @@
     use App\Http\Controllers\ListArtistAlbumsController;
     use App\Http\Controllers\ListPlaylistsController;
     use App\Http\Controllers\ListRecentlyPlayedController;
+    use App\Http\Controllers\ListUserDevicesController;
+    use App\Http\Controllers\PlaySongController;
     use Illuminate\Support\Facades\Route;
 
     Route::middleware('auth:sanctum')
@@ -26,6 +28,11 @@
              Route::get('album/{id}/tracks', ListAlbumTracks::class);
 
              /**
+              * Devices
+              */
+             Route::get('devices', ListUserDevicesController::class);
+
+             /**
               * Playlists.
               */
              Route::get('playlists', ListPlaylistsController::class);
@@ -40,4 +47,9 @@
               */
              Route::get('artist/{id}', GetArtistContoller::class);
              Route::get('artist/{id}/albums', ListArtistAlbumsController::class);
+
+             /**
+              * Player
+              */
+             Route::put('play', PlaySongController::class);
          });

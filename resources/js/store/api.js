@@ -18,7 +18,29 @@ const fetchPlaylists = async() => {
   }
 }
 
+const fetchDevices = async() => {
+  try {
+    return await axios.get('/devices')
+  } catch(e) {
+    console.error(e)
+    throw e
+  }
+}
+
+const playSong = async({ device, uris }) => {
+  try {
+    return await axios.put(`/play?device_id=${device.id}`, {
+      uris,
+    })
+  } catch(e) {
+    console.error(e)
+    throw e
+  }
+}
+
 export {
   fetchRecentlyPlayed,
   fetchPlaylists,
+  fetchDevices,
+  playSong,
 }

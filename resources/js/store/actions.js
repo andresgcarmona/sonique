@@ -1,4 +1,4 @@
-import { fetchPlaylists, fetchRecentlyPlayed } from './api'
+import { fetchPlaylists, fetchRecentlyPlayed, fetchDevices, playSong as doPlaySong } from './api'
 
 const getPlaylists = async({ commit }) => {
   try {
@@ -20,7 +20,25 @@ const getRecentlyPlayed = async({ commit }) => {
   }
 }
 
+const getDevices = async({ commit }) => {
+  try {
+    return (await fetchDevices()).data.devices
+  } catch(error) {
+    console.log(error)
+  }
+}
+
+const playSong = async({ commit }, payload) => {
+  try {
+    return (await doPlaySong(payload))
+  } catch(error) {
+    console.log(error)
+  }
+}
+
 export default {
   getPlaylists,
   getRecentlyPlayed,
+  getDevices,
+  playSong,
 }

@@ -11,6 +11,7 @@
                 </div>
             </div>
         </div>
+        <player ref="player"></player>
     </div>
 @endsection
 

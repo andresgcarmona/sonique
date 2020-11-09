@@ -26,9 +26,11 @@
         public function __invoke(Request $request)
         {
             $apiToken = Cookie::get('api_token');
+            $user     = user();
 
             JavaScript::put([
-                'api_token' => $apiToken,
+                'api_token'    => $apiToken,
+                'access_token' => $user->access_token,
             ]);
 
             return view('index', compact('apiToken'));

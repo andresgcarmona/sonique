@@ -10,6 +10,7 @@
   "require": {
     "php": "^7.3",
     "appstract/laravel-blade-directives": "^1.10",
+    "beyondcode/laravel-dump-server": "^1.6",
     "calebporzio/awesome-helpers": "^2.4",
     "fideloper/proxy": "^4.2",
     "fruitcake/laravel-cors": "^2.0",
