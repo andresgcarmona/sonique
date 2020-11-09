@@ -1,5 +1,5 @@
 <template>
-  <div class="track-list px-2 md:px-8">
+  <div class="track-list px-2">
     <ol class="tracks">
       <li :key="track.id"
           class="track pr-2 pl-12 py-3 cursor-pointer transition duration-200" v-for="track in tracks">
