@@ -2,6 +2,7 @@
 
     use App\Http\Controllers\GetAlbumController;
     use App\Http\Controllers\GetArtistContoller;
+    use App\Http\Controllers\GetPlayerInfoController;
     use App\Http\Controllers\GetTrackController;
     use App\Http\Controllers\ListAlbumsControllers;
     use App\Http\Controllers\ListAlbumTracks;
@@ -51,5 +52,6 @@
              /**
               * Player
               */
+             Route::get('player/info', GetPlayerInfoController::class);
              Route::put('play', PlaySongController::class);
          });

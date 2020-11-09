@@ -8,8 +8,6 @@
     <script src="/assets/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <script src="https://sdk.scdn.co/spotify-player.js"></script>
 
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/amplitudejs@v5.2.0/dist/amplitude.js"></script>
-
     <!-- Global site tag (gtag.js) - Google Analytics -->
     @env('production')
         <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-116692175-1"></script>

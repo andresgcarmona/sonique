@@ -3,7 +3,7 @@
     <header class="flex w-full header relative pb-8 pt-4">
       <track-item :track="track"/>
     </header>
-    <track-list :tracks="tracks"></track-list>
+    <track-list :tracks="tracks" @play-track="playTrack"></track-list>
   </div>
 </template>
 
@@ -43,6 +43,10 @@
       ...mapMutations(['SET_ACTIVE_SECTION']),
 
       ...mapMutations(['tracks/SET_TRACK', 'albums/SET_ALBUMS_TRACKS']),
+      
+      playTrack(track) {
+        this.$emit('play-track', track)
+      },
     },
     computed: {
       ...mapGetters({

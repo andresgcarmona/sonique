@@ -4,10 +4,12 @@
       <li :key="track.id"
           class="track pr-2 pl-12 py-3 cursor-pointer transition duration-200" v-for="track in tracks">
         <div class="flex w-full relative items-center">
-          <div class="absolute track-icon">
+          <a href="#"
+             class="appearance-none absolute track-icon border-0 focus:border-0 outline-none"
+          @click.prevent="playTrack(track)">
             <i class="fas fa-music"></i>
             <i class="fas fa-play"></i>
-          </div>
+          </a>
           <div class="flex-grow flex flex-col">
             <div class="track-name text-base text-white">{{ track.name }}</div>
             <div class="track-artists text-sm text-gray-400">
@@ -28,6 +30,7 @@
 </template>
 <script>
   import { padStart } from 'lodash'
+  import { mapActions, mapGetters } from 'vuex'
 
   export default {
     name: 'TrackList',
@@ -35,6 +38,10 @@
       tracks: Array,
     },
     methods: {
+      ...mapActions({
+        playSong: 'player/playSong',
+      }),
+      
       duration(durationMs) {
         if(durationMs) {
           let minutes = Math.floor((durationMs / 1000 / 60))
@@ -56,8 +63,17 @@
 
         return track.artists
       },
+      playTrack(track) {
+        console.log(track)
+        
+        this.$emit('play-track', track)
+      }
     },
-    computed: {},
+    computed: {
+      ...mapGetters({
+        device: 'player/device',
+      }),
+    },
   }
 </script>
 <style lang="scss" scoped>

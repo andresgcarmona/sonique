@@ -7,11 +7,10 @@
         <div class="page-inner mx-auto py-0">
             <div class="page-section">
                 <div class="section-block">
-                    <router-view></router-view>
+                    <router-view @play-track="playTrack"></router-view>
                 </div>
             </div>
         </div>
-        <player ref="player"></player>
     </div>
 @endsection
 

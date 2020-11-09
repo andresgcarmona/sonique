@@ -19,6 +19,9 @@
         @include('layouts.includes.alerts')
         @yield('main')
     </main>
+
+    <player ref="player"></player>
+
 </div>
 
 @include('layouts.includes.scripts')
