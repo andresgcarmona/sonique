@@ -148,6 +148,15 @@ button:not(:disabled) {
   display: none;
 }
 
+.app {
+  padding-bottom: $player-height;
+}
+
+.player-container {
+  min-height: $player-height;
+  background-color: $player-bg-color;
+}
+
 @tailwind utilities;
 
 @import 'login';

@@ -36,8 +36,7 @@ new Vue({
 		...mapMutations(['SET_RECENTLY_PLAYED', 'SET_API_TOKEN']),
 		
 		playTrack(track) {
-			console.log(track)
-			this.$refs.player.play(track.uri)
+			this.$refs.player.play(track)
 		}
 	},
 	async created() {

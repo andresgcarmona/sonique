@@ -6,6 +6,7 @@ const state = {
 	device: null,
 	devices: [],
 	playerInfo: null,
+	currenTrack: null,
 }
 
 export default {

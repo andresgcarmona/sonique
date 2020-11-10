@@ -5,7 +5,7 @@
     use Illuminate\Http\Request;
     use Polaris\SpotifyApi;
 
-    class PlaySongController extends Controller
+    class PauseTrackController extends Controller
     {
         /**
          * @var SpotifyApi
@@ -30,6 +30,6 @@
          */
         public function __invoke(Request $request)
         {
-            return $this->client->play($request->get('device_id'), $request->get('uris'));
+            return $this->client->pause($request->get('device_id'));
         }
     }

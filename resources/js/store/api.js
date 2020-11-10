@@ -27,9 +27,21 @@ const fetchDevices = async() => {
   }
 }
 
-const playSong = async({ device, uris }) => {
+const playTrack = async({ device, uris, position_ms }) => {
   try {
     return await axios.put(`/play?device_id=${device.id}`, {
+      uris,
+      position_ms,
+    })
+  } catch(e) {
+    console.error(e)
+    throw e
+  }
+}
+
+const pauseTrack = async({ device, uris }) => {
+  try {
+    return await axios.put(`/pause?device_id=${device.id}`, {
       uris,
     })
   } catch(e) {
@@ -42,5 +54,6 @@ export {
   fetchRecentlyPlayed,
   fetchPlaylists,
   fetchDevices,
-  playSong,
+  playTrack,
+  pauseTrack,
 }

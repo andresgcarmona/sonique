@@ -1,7 +1,7 @@
 import { fetchPlayerInfo } from './api'
-import { fetchDevices, playSong as doPlaySong } from '../../api'
+import { fetchDevices, pauseTrack as doPauseTrack, playTrack as doPlayTrack } from '../../api'
 
-const getPlayerInfo = async ({ commit }) => {
+const getPlayerInfo = async({ commit }) => {
 	try {
 		const response = await fetchPlayerInfo()
 		console.log(response)
@@ -13,8 +13,7 @@ const getPlayerInfo = async ({ commit }) => {
 		}
 		
 		return null
-	}
-	catch(e) {
+	} catch(e) {
 		console.error(e)
 	}
 }
@@ -31,9 +30,21 @@ const getDevices = async({ commit }) => {
 	}
 }
 
-const playSong = async({ commit }, payload) => {
+const playTrack = async({ commit }, payload) => {
 	try {
-		return (await doPlaySong(payload))
+		const response = await doPlayTrack(payload)
+		
+		commit('SET_CURRENT_TRACK', payload)
+		
+		return response
+	} catch(error) {
+		console.log(error)
+	}
+}
+
+const pauseTrack = async({ commit }, payload) => {
+	try {
+		return await doPauseTrack(payload)
 	} catch(error) {
 		console.log(error)
 	}
@@ -42,5 +53,6 @@ const playSong = async({ commit }, payload) => {
 export default {
 	getPlayerInfo,
 	getDevices,
-	playSong,
+	playTrack,
+	pauseTrack,
 }

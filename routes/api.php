@@ -10,7 +10,8 @@
     use App\Http\Controllers\ListPlaylistsController;
     use App\Http\Controllers\ListRecentlyPlayedController;
     use App\Http\Controllers\ListUserDevicesController;
-    use App\Http\Controllers\PlaySongController;
+    use App\Http\Controllers\PauseTrackController;
+    use App\Http\Controllers\PlayTrackController;
     use Illuminate\Support\Facades\Route;
 
     Route::middleware('auth:sanctum')
@@ -53,5 +54,6 @@
               * Player
               */
              Route::get('player/info', GetPlayerInfoController::class);
-             Route::put('play', PlaySongController::class);
+             Route::put('play', PlayTrackController::class);
+             Route::put('pause', PauseTrackController::class);
          });

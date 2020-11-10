@@ -5891,6 +5891,15 @@ button:not(:disabled) {
   display: none;
 }
 
+.app {
+  padding-bottom: 100px;
+}
+
+.player-container {
+  min-height: 100px;
+  background-color: #121212;
+}
+
 .space-y-0 > :not(template) ~ :not(template){
   --space-y-reverse: 0;
   margin-top: calc(0px * calc(1 - var(--space-y-reverse)));
@@ -26738,35 +26747,6 @@ button:not(:disabled) {
   align-items: center;
 }
 
-.media-object .cover .overlay .media-controls .media-play-button {
-  border: 2px solid #888c9b;
-  border-radius: 50%;
-}
-
-.media-object .cover .overlay .media-controls .media-play-button button {
-  outline: none;
-  border-radius: 50%;
-  width: 3rem;
-  height: 3rem;
-  padding: 0;
-  position: relative;
-  background-color: rgba(0, 0, 0, 0.4);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.media-object .cover .overlay .media-controls .media-play-button button:focus {
-  box-shadow: none;
-}
-
-.media-object .cover .overlay .media-controls .media-play-button button > img,
-.media-object .cover .overlay .media-controls .media-play-button button .fas,
-.media-object .cover .overlay .media-controls .media-play-button button .far {
-  position: relative;
-  color: #888c9b;
-}
-
 .media-object .cover:hover .overlay {
   opacity: 1;
 }
@@ -26785,6 +26765,35 @@ button:not(:disabled) {
 
 .media-object .media-artists-container .media-artist {
   font-size: 0.8rem;
+}
+
+.media-controls .media-play-button {
+  border: 2px solid #888c9b;
+  border-radius: 50%;
+}
+
+.media-controls .media-play-button button {
+  outline: none;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.media-controls .media-play-button button:focus {
+  box-shadow: none;
+}
+
+.media-controls .media-play-button button > img,
+.media-controls .media-play-button button .fas,
+.media-controls .media-play-button button .far {
+  position: relative;
+  color: #888c9b;
 }
 
 .album-container header .media-artist:after,

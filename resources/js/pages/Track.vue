@@ -3,7 +3,9 @@
     <header class="flex w-full header relative pb-8 pt-4">
       <track-item :track="track"/>
     </header>
-    <track-list :tracks="tracks" @play-track="playTrack"></track-list>
+    <track-list :tracks="tracks"
+                :album="track.album"
+                @play-track="playTrack"></track-list>
   </div>
 </template>
 

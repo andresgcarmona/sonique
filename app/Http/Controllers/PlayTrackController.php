@@ -5,7 +5,7 @@
     use Illuminate\Http\Request;
     use Polaris\SpotifyApi;
 
-    class GetPlayerInfoController extends Controller
+    class PlayTrackController extends Controller
     {
         /**
          * @var SpotifyApi
@@ -30,10 +30,6 @@
          */
         public function __invoke(Request $request)
         {
-            $info =  $this->client->player();
-
-            info($info);
-
-            return $info;
+            return $this->client->play($request->get('device_id'), $request->only('uris', 'position_ms'));
         }
     }
