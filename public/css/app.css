@@ -26767,16 +26767,16 @@ button:not(:disabled) {
   font-size: 0.8rem;
 }
 
-.media-controls .media-play-button {
+.media-controls .media-play-button,
+.media-controls .media-button {
   border: 2px solid #888c9b;
   border-radius: 50%;
 }
 
-.media-controls .media-play-button button {
+.media-controls .media-play-button button,
+.media-controls .media-button button {
   outline: none;
   border-radius: 50%;
-  width: 3rem;
-  height: 3rem;
   padding: 0;
   position: relative;
   background-color: rgba(0, 0, 0, 0.4);
@@ -26785,13 +26785,29 @@ button:not(:disabled) {
   align-items: center;
 }
 
-.media-controls .media-play-button button:focus {
+.media-controls .media-play-button button.btn,
+.media-controls .media-button button.btn {
+  width: 3rem;
+  height: 3rem;
+}
+
+.media-controls .media-play-button button.btn-sm,
+.media-controls .media-button button.btn-sm {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.media-controls .media-play-button button:focus,
+.media-controls .media-button button:focus {
   box-shadow: none;
 }
 
 .media-controls .media-play-button button > img,
 .media-controls .media-play-button button .fas,
-.media-controls .media-play-button button .far {
+.media-controls .media-play-button button .far,
+.media-controls .media-button button > img,
+.media-controls .media-button button .fas,
+.media-controls .media-button button .far {
   position: relative;
   color: #888c9b;
 }

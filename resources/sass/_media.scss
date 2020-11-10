@@ -86,21 +86,30 @@ $cover-height: 100%;
 }
 
 .media-controls {
-  .media-play-button {
+  .media-play-button,
+  .media-button {
     border: 2px solid #888c9b;
     border-radius: 50%;
 
     button {
       outline: none;
       border-radius: 50%;
-      width: 3rem;
-      height: 3rem;
       padding: 0;
       position: relative;
       background-color: rgba(0, 0, 0, 0.4);
       display: flex;
       justify-content: center;
       align-items: center;
+
+      &.btn {
+        width: 3rem;
+        height: 3rem;
+      }
+
+      &.btn-sm {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
 
       &:focus {
         box-shadow: none;

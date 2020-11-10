@@ -1,22 +1,38 @@
 <template>
-  <div class="player-container fixed bottom-0 z-50 p-4 w-full">
-    <div class="song-metadata flex items-center"
-         v-if="currentTrack">
-      <img :src="cover" alt="Album art" class="h-16 w-16 block mr-3"/>
-      <div class="media-controls mr-3">
-        <div class="media-play-button">
+  <div class="player-container fixed bottom-0 z-50 p-4 w-full flex">
+    <div class="song-metadata flex flex-1 items-center">
+      <template v-if="currentTrack">
+        <img :src="cover" alt="Album art" class="h-16 w-16 block mr-3"/>
+        <div class="flex flex-col">
+          <span>{{ artists }}</span>
+          <span>{{ trackName }}</span>
+        </div>
+      </template>
+    </div>
+    <div class="flex flex-grow">
+      <div class="media-controls flex items-center">
+        <div class="media-button">
+          <button class="btn btn-sm" @click="play(currentTrack)"><i class="fas fa-fw fa-step-backward fa-lg"></i>
+          </button>
+        </div>
+        <div class="media-button mx-2">
           <button class="btn" v-if="!isPlaying" @click="play(currentTrack)"><i class="fas fa-fw fa-play fa-lg"></i>
           </button>
           <button class="btn" v-if="isPlaying" @click="pause"><i class="fas fa-fw fa-pause fa-lg"></i></button>
         </div>
+        <div class="media-button">
+          <button class="btn btn-sm" @click="play(currentTrack)"><i class="fas fa-fw fa-step-forward fa-lg"></i>
+          </button>
+        </div>
       </div>
-      <p>{{ artists }} - {{ trackName }}</p>
     </div>
   </div>
 </template>
 
 <script>
   import { mapActions, mapGetters, mapMutations } from 'vuex'
+  
+  const PLAYER_INFO_INTERVAL = 5 * 1000 // 5 seconds.
   
   export default {
     name: 'Player',
@@ -26,6 +42,7 @@
         player: null,
         currentTrack: null,
         isPlaying: false,
+        getPlayerInfoInterval: null,
       }
     },
     methods: {
@@ -113,6 +130,7 @@
         this.isPlaying    = true
         
         this.getPlayerInfo()
+        this.getPlayerInfoInterval = setInterval(this.getPlayerInfo, PLAYER_INFO_INTERVAL)
       },
       async pause() {
         this.isPlaying = false
@@ -122,6 +140,9 @@
         })
         
         this.getPlayerInfo()
+        if(this.getPlayerInfoInterval) {
+          clearInterval(this.getPlayerInfoInterval)
+        }
       },
     },
     computed: {
@@ -136,14 +157,17 @@
         }
       },
       artists() {
+        let artists = ''
+        
         if(this.currentTrack && this.currentTrack.artists.items) {
-          let artists = ''
           this.currentTrack.artists.items[0].forEach(artist => artists += artist.name)
-          
+  
           return artists
         }
         
-        this.currentTrack.artists.join(', ')
+        this.currentTrack.artists.forEach(artist => artists += artist.name)
+  
+        return artists
       },
       cover() {
         return this.currentTrack.album.images[0].url
@@ -162,6 +186,11 @@
         
         }
       },
+      playerInfo(info) {
+        if(info) {
+          this.currentTrack = info.item
+        }
+      }
     },
   }
 </script>
