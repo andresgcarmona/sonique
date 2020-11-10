@@ -6,6 +6,7 @@
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/progress";
 @import "dark/variables";
 @import "dark/mixins";
 @import 'variables';
@@ -21,8 +22,8 @@
 // app plugins
 @import "~stacked-menu/dist/scss/stacked-menu";
 // replace plugins
-@import "dark/components/plugins";
 
+@import "dark/bootstrap/progress";
 
 // app layout
 @import "dark/components/aside";
